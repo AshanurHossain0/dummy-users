@@ -1,3 +1,4 @@
+require('dotenv').config();
 const cors=require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -10,7 +11,7 @@ app.use(cors());
 mongoose.set("strictQuery", true);
 
 mongoose.connect(
-    "mongodb+srv://ashanur:nurasha2000@ashanurdb.x6brlcb.mongodb.net/dummy",
+    process.env.CONNECTION_STRING,
     { useNewUrlParser: true }
   )
   .then(() => {
